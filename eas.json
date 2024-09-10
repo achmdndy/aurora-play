@@ -1,0 +1,55 @@
+{
+  "cli": {
+    "version": ">= 5.4.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "appId": "com.achmdndy.auroraplay",
+      "developmentClient": true,
+      "distribution": "internal",
+      "releaseChannel": "default",
+      "channel": "development"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "appId": "com.achmdndy.auroraplay",
+      "distribution": "internal",
+      "releaseChannel": "preview",
+      "channel": "preview"
+    },
+    "production": {
+      "appId": "com.achmdndy.auroraplay",
+      "distribution": "store",
+      "releaseChannel": "stable",
+      "channel": "prod-0.0.1",
+      "autoIncrement": true,
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "buildType": "app-store",
+        "autoIncrement": true
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "your-apple-id@example.com",
+        "ascAppId": "your-asc-app-id",
+        "appleTeamId": "your-team-id"
+      },
+      "android": {
+        "serviceAccountKeyPath": "./path/to/your-service-account-key.json",
+        "track": "production"
+      }
+    }
+  }
+}

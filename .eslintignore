@@ -1,0 +1,14 @@
+.expo
+.vscode
+node_modules
+dist
+api
+commitlint.config.js
+babel.config.js
+reset-project.js
+tailwind.config.js
+metro.config.js
+components/deprecated-ui
+components/ui
+components/primitives
+index.js

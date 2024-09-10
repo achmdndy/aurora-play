@@ -1,14 +1,40 @@
 {
-  "name": "mobile-app",
+  "name": "aurora-play",
+  "author": "Achmad Andy Dekanovy<achmdndy@gmail.com>",
+  "homepage": "https://github.com/achmdndy/aurora-play.git",
+  "description": "Music Player with Expo Router",
+  "license": "MIT",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": "please-use-npm",
+    "npm": ">=9.8.1"
+  },
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "test": "jest --watchAll",
-    "lint": "expo lint"
+    "start:production": "NODE_ENV=production expo start -c",
+    "start:test": "NODE_ENV=test expo start -c",
+    "start:development": "NODE_ENV=development expo start -c",
+    "start:local": "NODE_ENV=local expo start -c",
+    "android": "expo run:android -c --android",
+    "ios": "expo run:ios -c --ios",
+    "dev:ios": "expo run:ios",
+    "dev:android": "expo run:android",
+    "dev:web": "expo start -c --web",
+    "build": "npx expo export -p web",
+    "build:android": "eas build -p android --profile preview",
+    "build:android:local": "cd android && ./gradlew clean && ./gradlew assembleRelease --stacktrace && cd ..",
+    "serve": "npx serve dist --single",
+    "clean": "rm -rf .expo node_modules && npm install",
+    "clean:android": "cd android && ./gradlew clean && cd ..",
+    "clean:ios": "cd ios && rm -rf Pods && pod install && cd ..",
+    "jest:test": "jest --watchAll",
+    "prettier": "prettier --write .",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types",
+    "prepare": "husky install"
   },
   "jest": {
     "preset": "jest-expo"
@@ -42,6 +68,12 @@
     "jest": "^29.2.1",
     "jest-expo": "~51.0.3",
     "react-test-renderer": "18.2.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-expo": "^7.1.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.35.0",
+    "husky": "^8.0.0",
+    "prettier": "^3.3.3",
     "typescript": "~5.3.3"
   },
   "private": true

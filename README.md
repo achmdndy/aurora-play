@@ -1,50 +1,111 @@
-# Welcome to your Expo app 👋
+# Aurora Play
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Aurora Play** is a music player application built with Expo Router, designed to provide a seamless experience across various platforms including web, Android, and iOS.
 
-## Get started
+## Table of Contents
 
-1. Install dependencies
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Testing](#testing)
+- [License](#license)
+- [Contributors](#contributors)
+
+## Features
+
+- Cross-platform support (iOS, Android, Web)
+- Integration with Expo Router
+- Support for various icons and fonts
+- Status bar and splash screen management
+
+## Installation
+
+1. **Clone this repository:**
+
+   ```bash
+   git clone https://github.com/achmdndy/aurora-play.git
+   cd aurora-play
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+## Usage
 
-   ```bash
-    npx expo start
-   ```
+- **Start the application in development mode:**
 
-In the output, you'll find options to open the app in a
+  ```bash
+  npm run start:development
+  ```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Run the application on Android:**
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+  ```bash
+  npm run android
+  ```
 
-## Get a fresh project
+- **Run the application on iOS:**
 
-When you're ready, run:
+  ```bash
+  npm run dev:ios
+  ```
+
+- **Build the application for the web:**
+
+  ```bash
+  npm run build
+  ```
+
+## Scripts
+
+- `start:production`: Start the application in production mode.
+- `start:test`: Start the application in test mode.
+- `start:development`: Start the application in development mode.
+- `start:local`: Start the application in local mode.
+- `android`: Run the application on an Android device.
+- `ios`: Run the application on the iOS simulator with cache.
+- `dev:ios`: Run the application on the iOS simulator.
+- `dev:android`: Run the application on an Android emulator.
+- `dev:web`: Start the application for the web.
+- `build`: Export the application for the web.
+- `build:android`: Build the Android application using EAS.
+- `build:android:local`: Build the Android application locally.
+- `serve`: Run a static server for the `dist` directory.
+- `clean`: Clean cache and `node_modules`.
+- `clean:android`: Clean Gradle cache for Android.
+- `clean:ios`: Clean Pods cache for iOS.
+- `jest:test`: Run tests using Jest.
+- `prettier`: Format code using Prettier.
+- `check-types`: Check types with TypeScript.
+- `check-format`: Check code formatting with Prettier.
+- `check-lint`: Check linting with ESLint.
+- `test-all`: Run all code checks and tests.
+- `prepare`: Install Husky for pre-commit hooks.
+
+## Testing
+
+To run tests, use the following command:
 
 ```bash
-npm run reset-project
+npm run jest:test
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## License
 
-## Learn more
+This project is licensed under the [MIT License](LICENSE).
 
-To learn more about developing your project with Expo, look at the following resources:
+## Contributors
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This project is developed by [Achmad Andy Dekanovy](mailto:achmdndy@gmail.com).
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+If you have any questions or feedback, please open an [issue on GitHub](https://github.com/achmdndy/aurora-play/issues) or contact me via email.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+
+```
