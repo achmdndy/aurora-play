@@ -3,8 +3,10 @@ import React from 'react';
 export default function TabLayout() {
   return (
     <Tabs>
-      <Tabs.Screen name="index" />
-      <Tabs.Screen name="explore" />
+      <Tabs.Screen name="favorites" />
+      <Tabs.Screen name="playlists" />
+      <Tabs.Screen name="(songs)" />
+      <Tabs.Screen name="artists" />
     </Tabs>
   );
 }
