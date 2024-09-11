@@ -4,7 +4,7 @@ import { defaultStyles } from '@/styles';
 import { Entypo } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { Track } from 'react-native-track-player';
+import { Track, useActiveTrack } from 'react-native-track-player';
 
 export type TrackListItemProps = {
   track: Track;
@@ -15,7 +15,7 @@ export const TrackListItem = ({
   track,
   onTrackSelect: handleTrackSelect,
 }: TrackListItemProps) => {
-  const isActiveTrack = false;
+  const isActiveTrack = useActiveTrack()?.url === track.url;
 
   return (
     <TouchableHighlight onPress={() => handleTrackSelect(track)}>
