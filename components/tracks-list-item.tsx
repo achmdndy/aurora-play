@@ -2,21 +2,25 @@ import { unknownTrackImageUri } from '@/constants/images';
 import { colors, fontSize } from '@/constants/theme';
 import { defaultStyles } from '@/styles';
 import { Entypo, Ionicons } from '@expo/vector-icons';
+import React from 'react';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import LoaderKit from 'react-native-loader-kit';
 import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
+import { StopPropagation } from './stop-propagation';
+import { TrackShortcutsMenu } from './track-shortcuts-menu';
 
-export type TrackListItemProps = {
+export type TracksListItemProps = {
   track: Track;
   onTrackSelect: (track: Track) => void;
 };
 
-export const TrackListItem = ({
+export const TracksListItem = ({
   track,
   onTrackSelect: handleTrackSelect,
-}: TrackListItemProps) => {
+}: TracksListItemProps) => {
   const { playing } = useIsPlaying();
+
   const isActiveTrack = useActiveTrack()?.url === track.url;
 
   return (
@@ -59,7 +63,7 @@ export const TrackListItem = ({
             alignItems: 'center',
           }}
         >
-          {/* Track Title + Artist */}
+          {/* Track title + artist */}
           <View style={{ width: '100%' }}>
             <Text
               numberOfLines={1}
@@ -72,13 +76,21 @@ export const TrackListItem = ({
             </Text>
 
             {track.artist && (
-              <Text numberOfLines={1} style={{ ...styles.trackArtistText }}>
-                {track.artist} test
+              <Text numberOfLines={1} style={styles.trackArtistText}>
+                {track.artist}
               </Text>
             )}
           </View>
 
-          <Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
+          <StopPropagation>
+            <TrackShortcutsMenu track={track}>
+              <Entypo
+                name="dots-three-horizontal"
+                size={18}
+                color={colors.icon}
+              />
+            </TrackShortcutsMenu>
+          </StopPropagation>
         </View>
       </View>
     </TouchableHighlight>

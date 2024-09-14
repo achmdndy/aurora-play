@@ -1,22 +1,33 @@
 import { unknownTrackImageUri } from '@/constants/images';
 import { useLastActiveTrack } from '@/hooks/use-last-active-track';
 import { defaultStyles } from '@/styles';
+import { useRouter } from 'expo-router';
 import { StyleSheet, TouchableOpacity, View, ViewProps } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { Track, useActiveTrack } from 'react-native-track-player';
+import { useActiveTrack } from 'react-native-track-player';
 import { MovingText } from './moving-text';
 import { PlayPauseButton, SkipToNextButton } from './player-controls';
 
 export const FloatingPlayer = ({ style }: ViewProps) => {
+  const router = useRouter();
+
   const activeTrack = useActiveTrack();
   const lastActiveTrack = useLastActiveTrack();
 
-  const displayedTrack: Track = activeTrack ?? lastActiveTrack;
+  const displayedTrack = activeTrack ?? lastActiveTrack;
+
+  const handlePress = () => {
+    router.navigate('/player');
+  };
 
   if (!displayedTrack) return null;
 
   return (
-    <TouchableOpacity activeOpacity={0.9} style={[styles.container, style]}>
+    <TouchableOpacity
+      onPress={handlePress}
+      activeOpacity={0.9}
+      style={[styles.container, style]}
+    >
       <>
         <FastImage
           source={{
